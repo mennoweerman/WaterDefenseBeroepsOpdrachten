@@ -10,9 +10,10 @@ public class Shooting : MonoBehaviour
     public float bulletForce = 20f;
 
 
-    public void Shoot()
+    public Shooting Shoot()
     {
         Invoke("Commit", timer);
+        return null;
     }
 
     void Commit()

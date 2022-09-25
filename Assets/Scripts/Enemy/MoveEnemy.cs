@@ -7,15 +7,23 @@ public class MoveEnemy : MonoBehaviour
     public Transform[] wayPoints;
 
     [SerializeField]
-    float moveSpeed = 2f;
+    public float moveSpeed = 2f;
+
+    public float originalSpeed;
+
+    public float timer = 2f;
+
+    public float originalTimer;
 
     int waypointIndex = 0;
 
     public GameObject Enemy;
+    private bool isSlowed = false;
 
     void Start()
     {
-
+        originalSpeed = moveSpeed;
+        originalTimer = timer;
         transform.position = wayPoints[waypointIndex].transform.position;
     }
 
@@ -31,7 +39,19 @@ public class MoveEnemy : MonoBehaviour
 
      public void SlowEnemy()
     {
-        moveSpeed *= .5f;
+        if (isSlowed) 
+            return;
+        StartCoroutine(SlowerTimer());
+     }
+
+    public IEnumerator SlowerTimer()
+    {
+        isSlowed = true;
+        moveSpeed = originalSpeed / 2;
+        yield return new WaitForSeconds(5);
+        moveSpeed = originalSpeed;
+        isSlowed = false;
+        //timer = originalTimer;
     }
 
     void OnCollisionEnter2D(Collision2D collision)

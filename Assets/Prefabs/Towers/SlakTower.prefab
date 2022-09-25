@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8224418446160572568}
   - component: {fileID: 3476856444753059846}
   - component: {fileID: 797650109291321564}
-  - component: {fileID: 797650109291321565}
+  - component: {fileID: 4708103997474444940}
   m_Layer: 0
   m_Name: SlakTower
   m_TagString: Turret
@@ -103,7 +103,7 @@ MonoBehaviour:
   range: 1.9
   enemyTag: Enemy
   partToRotate: {fileID: 0}
---- !u!114 &797650109291321565
+--- !u!114 &4708103997474444940
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,13 +112,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4491366633478267393}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6fc84553e901364b9c75239cce4dff1, type: 3}
+  m_Script: {fileID: 11500000, guid: 7711e1a9126d10f47be09638f717c0e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 3220102642222897428}
-  bulletPrefab: {fileID: 835723846180445350, guid: 9252d5aace4a2b947ac5c3a1748577f5, type: 3}
-  timer: 0.3
-  bulletForce: 35
+  SlowGun: 1
+  enemyTag: Enemy
+  range: 1.9
 --- !u!1001 &4528275415120622505
 PrefabInstance:
   m_ObjectHideFlags: 0

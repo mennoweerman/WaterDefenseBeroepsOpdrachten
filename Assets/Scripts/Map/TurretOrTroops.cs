@@ -10,6 +10,10 @@ public class TurretOrTroops : MonoBehaviour
     private Transform Target;
     public float range = 15f;
     public string enemyTag = "Enemy";
+    
+    private float moveSpeed;
+
+    private Shooting shoot;
 
     public Transform partToRotate;
     // Start is called before the first frame update
@@ -31,18 +35,14 @@ public class TurretOrTroops : MonoBehaviour
             {
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
+
+            }
+            else
+            {
+                Target = null;
             }
         }
-
-        if (nearestEnemy != null && shortestDistance <= range)
-        {
-            Target = nearestEnemy.transform;
-            gameObject.GetComponent<Shooting>().Shoot();
-        }
-        else
-        {
-            Target = null;
-        }
+        
 
     }
 
@@ -55,6 +55,7 @@ public class TurretOrTroops : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Target == null)
             return;
 
@@ -63,6 +64,5 @@ public class TurretOrTroops : MonoBehaviour
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
     }
-
-
+    
 }
